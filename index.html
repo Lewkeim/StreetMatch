@@ -75,18 +75,43 @@ Dillave
 
 <script>
 
+const cars = [
+"1950-mercury-coupe.jpg",
+"1972-dodge-challenger.webp",
+"Sunbeam-1.jpg",
+"bmw.jpg",
+"bronco1.jpg"
+];
+
+let currentCar = 0;
+
 function allowDrop(ev){
 ev.preventDefault();
 }
 
-document.getElementById("car").addEventListener("dragstart",function(ev){
+car.ondragstart=function(ev){
 ev.dataTransfer.setData("text","car");
-});
+}
 
 function drop(ev){
 ev.preventDefault();
-ev.target.appendChild(document.getElementById("car"));
+
 alert("Choice recorded!");
+
+nextCar();
+}
+
+function nextCar(){
+
+currentCar++;
+
+if(currentCar >= cars.length){
+alert("Game finished!");
+currentCar = 0;
+}
+
+document.getElementById("car").src = cars[currentCar];
+
 }
 
 </script>
@@ -94,3 +119,4 @@ alert("Choice recorded!");
 </body>
 
 </html>
+
