@@ -1,61 +1,14 @@
-```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Street Match</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: #f5f5f5;
-}
-
-h1 {
-    margin-top: 20px;
-}
-
-#gameContainer {
-    margin-top: 20px;
-}
-
-#carImage {
-    width: 450px;
-    max-width: 90%;
-    border: 5px solid #333;
-    border-radius: 8px;
-}
-
-#streets {
-    margin-top: 20px;
-}
-
-button {
-    padding: 12px 20px;
-    margin: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 6px;
-    border: none;
-    background-color: #0078d7;
-    color: white;
-}
-
-button:hover {
-    background-color: #005ea6;
-}
-
-#score {
-    margin-top: 15px;
-    font-size: 20px;
-}
-
-#progress {
-    margin-top: 5px;
-    font-size: 16px;
-}
+body { font-family: Arial; text-align:center; }
+img { width:450px; border:4px solid black; }
+button { padding:10px 20px; margin:10px; font-size:16px; }
 </style>
+
 </head>
 
 <body>
@@ -65,60 +18,46 @@ button:hover {
 <div id="score">Score: 0</div>
 <div id="progress"></div>
 
-<div id="gameContainer">
-    <img id="carImage" src="">
-</div>
+<br>
 
-<div id="streets">
-    <button data-street="Dill Ave">Dill Ave</button>
-    <button data-street="Hagel Ave">Hagel Ave</button>
-</div>
+<img id="carImage">
+
+<br><br>
+
+<button data-street="Dill Ave">Dill Ave</button>
+<button data-street="Hagel Ave">Hagel Ave</button>
 
 <script>
 
 const cars = [
 
-{ image: "1910-pierce-four-motor.jpg", street: "Dill Ave" },
-{ image: "1910-pierce-four-motor3a.jpg", street: "Hagel Ave" },
-{ image: "1950-mercury-coupe%203.jpg", street: "Dill Ave" },
-{ image: "1950-mercury-coupe3.jpg", street: "Hagel Ave" },
-{ image: "1951-mercury-coupe3.jpg", street: "Dill Ave" },
-{ image: "1965-cadillac-deville3.jpg", street: "Hagel Ave" },
-{ image: "1972-dodge-challenger.jpg", street: "Dill Ave" },
-{ image: "1972-dodge-challenger3.jpg", street: "Hagel Ave" },
-{ image: "1972-plymouth-cuda3.jpg", street: "Dill Ave" },
-{ image: "bmw3.jpg", street: "Hagel Ave" },
-{ image: "bronco3.jpg", street: "Dill Ave" },
-{ image: "bug3.jpg", street: "Hagel Ave" },
-{ image: "buga3.jpg", street: "Dill Ave" },
-{ image: "cudahood3.jpg", street: "Hagel Ave" },
-{ image: "daytona3.jpg", street: "Dill Ave" },
-{ image: "fiat3.jpg", street: "Hagel Ave" },
-{ image: "fiero3.jpg", street: "Dill Ave" },
-{ image: "hotwheel3.jpg", street: "Hagel Ave" },
-{ image: "hurst3.jpg", street: "Dill Ave" },
-{ image: "mustang3.jpg", street: "Hagel Ave" },
-{ image: "nash3.jpg", street: "Dill Ave" },
-{ image: "oil%20flter%20adapter3.jpg", street: "Hagel Ave" },
-{ image: "old-hemi-engine3.jpg", street: "Dill Ave" },
-{ image: "rambler%201.jpg", street: "Hagel Ave" },
-{ image: "schwin%203.jpg", street: "Dill Ave" },
-{ image: "schwinA3.jpg", street: "Hagel Ave" },
-{ image: "schwinn3.jpg", street: "Dill Ave" },
-{ image: "station%20wagon3.jpg", street: "Hagel Ave" },
-{ image: "streetmatch2.jpg", street: "Dill Ave" },
-{ image: "Sunbeam3.jpg", street: "Hagel Ave" },
-{ image: "wagon%202%203.jpg", street: "Dill Ave" },
-{ image: "wiper%20switch3.jpg", street: "Hagel Ave" },
-{ image: "yamaha3.jpg", street: "Dill Ave" }
+{ image:"1910-pierce-four-motor.jpg", street:"Dill Ave"},
+{ image:"1910-pierce-four-motor3a.jpg", street:"Hagel Ave"},
+{ image:"1950-mercury-coupe3.jpg", street:"Dill Ave"},
+{ image:"1951-mercury-coupe3.jpg", street:"Hagel Ave"},
+{ image:"1965-cadillac-deville3.jpg", street:"Dill Ave"},
+{ image:"1972-dodge-challenger.jpg", street:"Hagel Ave"},
+{ image:"1972-dodge-challenger3.jpg", street:"Dill Ave"},
+{ image:"1972-plymouth-cuda3.jpg", street:"Hagel Ave"},
+{ image:"bmw3.jpg", street:"Dill Ave"},
+{ image:"bronco3.jpg", street:"Hagel Ave"},
+{ image:"bug3.jpg", street:"Dill Ave"},
+{ image:"buga3.jpg", street:"Hagel Ave"},
+{ image:"cudahood3.jpg", street:"Dill Ave"},
+{ image:"daytona3.jpg", street:"Hagel Ave"},
+{ image:"fiat3.jpg", street:"Dill Ave"},
+{ image:"fiero3.jpg", street:"Hagel Ave"},
+{ image:"hotwheel3.jpg", street:"Dill Ave"},
+{ image:"hurst3.jpg", street:"Hagel Ave"},
+{ image:"mustang3.jpg", street:"Dill Ave"},
+{ image:"nash3.jpg", street:"Hagel Ave"},
+{ image:"old-hemi-engine3.jpg", street:"Dill Ave"},
+{ image:"schwinA3.jpg", street:"Hagel Ave"},
+{ image:"schwinn3.jpg", street:"Dill Ave"},
+{ image:"streetmatch2.jpg", street:"Hagel Ave"},
+{ image:"Sunbeam3.jpg", street:"Dill Ave"},
+{ image:"yamaha3.jpg", street:"Hagel Ave"}
 
-];
-    
-{ image: "cars/car1.jpg", street: "Dill Ave" },
-{ image: "cars/car2.jpg", street: "Hagel Ave" },
-{ image: "cars/car3.jpg", street: "Dill Ave" },
-{ image: "cars/car4.jpg", street: "Hagel Ave" }
-{ image: "cars/car4.jpg", street: "Mystery Lane" }
 ];
 
 let currentCar = 0;
@@ -128,65 +67,52 @@ const carImage = document.getElementById("carImage");
 const scoreDisplay = document.getElementById("score");
 const progressDisplay = document.getElementById("progress");
 
-function shuffleCars() {
-    cars.sort(() => Math.random() - 0.5);
+cars.sort(() => Math.random() - 0.5);
+
+function loadCar(){
+
+if(currentCar >= cars.length){
+document.body.innerHTML =
+"<h1>Game Over</h1><h2>Score "+score+" / "+cars.length+"</h2><button onclick='location.reload()'>Play Again</button>";
+return;
 }
 
-function loadCar() {
+carImage.src = cars[currentCar].image;
 
-    if (currentCar >= cars.length) {
-        gameOver();
-        return;
-    }
+progressDisplay.innerText =
+"Picture " + (currentCar+1) + " of " + cars.length;
 
-    carImage.src = cars[currentCar].image;
-
-    progressDisplay.innerText =
-        "Car " + (currentCar + 1) + " of " + cars.length;
 }
 
-function checkStreet(guess) {
+function checkStreet(guess){
 
-    const correct = cars[currentCar].street;
+const correct = cars[currentCar].street;
 
-    if (guess === correct) {
-        score++;
-        alert("Correct!");
-    } else {
-        alert("Wrong! Correct street was " + correct);
-    }
-
-    scoreDisplay.innerText = "Score: " + score;
-
-    currentCar++;
-    loadCar();
+if(guess === correct){
+score++;
+alert("Correct");
+}
+else{
+alert("Wrong. Correct was "+correct);
 }
 
-function gameOver() {
+scoreDisplay.innerText="Score: "+score;
 
-    document.body.innerHTML = `
-        <h1>Game Over</h1>
-        <h2>Your Score: ${score} / ${cars.length}</h2>
-        <button onclick="location.reload()">Play Again</button>
-    `;
+currentCar++;
+
+loadCar();
+
 }
 
-document.querySelectorAll("#streets button").forEach(button => {
-
-    button.addEventListener("click", () => {
-        const guess = button.dataset.street;
-        checkStreet(guess);
-    });
-
+document.querySelectorAll("button").forEach(btn=>{
+btn.addEventListener("click",()=>{
+checkStreet(btn.dataset.street);
+});
 });
 
-shuffleCars();
 loadCar();
 
 </script>
 
 </body>
 </html>
-```
-
-
