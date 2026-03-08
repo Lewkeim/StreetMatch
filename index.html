@@ -161,10 +161,8 @@ cars.sort(() => Math.random() - 0.5);
 function loadCar(){
 
 if(currentCar >= cars.length){
-document.body.innerHTML =
 
-  
- let resultsHTML = "<h1>Game Over</h1>";
+let resultsHTML = "<h1>Game Over</h1>";
 resultsHTML += "<h2>Score "+score+" / "+cars.length+"</h2>";
 resultsHTML += "<h3>Player Comments</h3>";
 
@@ -190,6 +188,7 @@ resultsHTML += "</div>";
 resultsHTML += "<br><button onclick='location.reload()'>Play Again</button>";
 
 document.body.innerHTML = resultsHTML;
+
 return;
 }
 
@@ -250,6 +249,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
