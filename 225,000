@@ -108,9 +108,9 @@ explanation:"Anthony's Nash."
 },
   
 { 
-image:"pierce2253.jpg", 
+image:"Pierce2253.jpg", 
 street:"Ingalls Ave",
-explanation:"The ptentional highest priced vehicle. $225,000. And I think Anth gave it away!!"  
+explanation:"The potentionally highest priced vehicle, $225,000. And I think Anth gave it away!!"  
 },
   
   
@@ -406,6 +406,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
