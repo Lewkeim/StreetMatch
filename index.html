@@ -168,7 +168,7 @@ loadCar();
 });
   
   
-document.querySelectorAll("button").forEach(btn=>{
+document.querySelectorAll("button[data-street]").forEach(btn=>{
 btn.addEventListener("click",()=>{
 checkStreet(btn.dataset.street);
 });
@@ -180,6 +180,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
