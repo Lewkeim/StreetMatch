@@ -55,7 +55,7 @@ document.body.innerHTML =
 return;
 }
 
-carImage.src = cars[bmw3].image;
+carImage.src = cars[currentCar].image;
 
 progressDisplay.innerText =
 "Picture " + (currentCar+1) + " of " + cars.length;
@@ -91,6 +91,7 @@ checkStreet(btn.dataset.street);
 loadCar();
 
 </script>
+
 
 
 
