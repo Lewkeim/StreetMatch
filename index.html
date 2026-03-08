@@ -161,7 +161,34 @@ function loadCar(){
 
 if(currentCar >= cars.length){
 document.body.innerHTML =
-"<h1>Game Over</h1><h2>Score "+score+" / "+cars.length+"</h2><button onclick='location.reload()'>Play Again</button>";
+
+  
+ let resultsHTML = "<h1>Game Over</h1>";
+resultsHTML += "<h2>Score "+score+" / "+cars.length+"</h2>";
+resultsHTML += "<h3>Player Comments</h3>";
+
+for(let i=0;i<cars.length;i++){
+
+resultsHTML += "<div style='border:1px solid black;padding:10px;margin:10px'>";
+
+resultsHTML += "<img src='"+cars[i].image+"' style='max-width:200px'><br>";
+
+resultsHTML += "<b>Street:</b> "+cars[i].street+"<br>";
+
+if(cars[i].explanation){
+resultsHTML += "<b>Explanation:</b> "+cars[i].explanation+"<br>";
+}
+
+if(playerComments[i]){
+resultsHTML += "<b>Your Comment:</b> "+playerComments[i];
+}
+
+resultsHTML += "</div>";
+}
+
+resultsHTML += "<br><button onclick='location.reload()'>Play Again</button>";
+
+document.body.innerHTML = resultsHTML;
 return;
 }
 
@@ -197,7 +224,7 @@ document.getElementById("explanationBox").innerHTML =
 }
 
 document.getElementById("nextButton").addEventListener("click",function(){
-
+playerComments[currentCar] = document.getElementById("playerComment").value;
 currentCar++;
 
 document.getElementById("playerComment").value="";
@@ -222,6 +249,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
