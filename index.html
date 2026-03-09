@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
+<head> 
+<title>Street Match</title>
+<style}
+body { font-family: Arial; text-align:center; }           
+         
 #introText{
 width:600px;
 margin:20px auto;
-font-size:18px;
+font-size:18px;           
 }
+img {
+max-width:350px;
+width:90%;
+border:4px solid black;
+} 
            
 <head>
-<title>Street Match</title>
-<style>
-#introText{
-width:600px;
-margin:20px auto;
-font-size:18px;
+
+
 }
            
+
+           
+</head>    
+           
+body { font-family: Arial; text-align:center; }
+
+<h1>Street Match</h1>
+
 <div id="introText">
 Welcome to Street Match!  
 Guess which street each vehicle belonged to from our neighborhood memories.
@@ -37,12 +51,8 @@ Yes there are pictures that you will not recognize but apply some logic to guess
 
 </div>
 
-<style>
+</body>           
            
-</head>    
-           
-body { font-family: Arial; text-align:center; }
-
 img {
   max-width: 350px;
   width: 90%;
@@ -50,11 +60,11 @@ img {
 }
 
 .commentBox {
-width: 500px;
-margin: 15px auto;
-padding: 15px;
-border: 2px solid black;
-background-color: #f4f4f4;
+width:500px;
+margin:15px auto;
+padding:15px;
+border:2px solid black;
+background-color:#f4f4f4;
 }
 
 #nextButton {
@@ -68,18 +78,21 @@ border:none;
 border-radius:6px;
 cursor:pointer;
 }
-  
-#playerComment {
-width: 480px;
-height: 80px;
-}  
 </style>
 
 </head>
 
 <body>
 
-<h1>Street Match</h1>
+           
+#playerComment {
+width: 480px;
+height: 80px;
+}  
+
+
+
+
 
 <div id="score">Score: 0</div>
 <div id="progress"></div>
@@ -502,6 +515,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
