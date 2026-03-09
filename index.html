@@ -82,9 +82,8 @@ loadCar();
 
 };
 
-
 /* -------------------------------
-   START GAME
+   GAME DATA
 -------------------------------- */
 const cars = [
 
@@ -375,16 +374,31 @@ explanation:"Only John may remember the Stang interior"
 },
 
 ];
+/* -------------------------------
+   VARIABLES
+-------------------------------- */
 
 let currentCar = 0;
 let score = 0;
 let playerComments = []; 
 
+/* -------------------------------
+   PAGE ELEMENTS
+-------------------------------- */
+
 const carImage = document.getElementById("carImage");
 const scoreDisplay = document.getElementById("score");
 const progressDisplay = document.getElementById("progress");
 
+/* -------------------------------
+   SHUFFLE CAR ORDER
+-------------------------------- */
+
 cars.sort(() => Math.random() - 0.5);
+
+/* -------------------------------
+   LOAD CAR
+-------------------------------- */
 
 function loadCar(){
 
@@ -429,7 +443,10 @@ btn.disabled = false;
 });
 
 }
-
+/* -------------------------------
+   CHECK ANSWER
+-------------------------------- */
+   
 function checkStreet(guess){
 
 const correct = cars[currentCar].street;
@@ -452,13 +469,19 @@ document.getElementById("nextButton").style.display="block";
 
 document.getElementById("explanationBox").innerHTML =
 "<b>"+message+"</b><br><br>"+(cars[currentCar].explanation || "");
- document.querySelectorAll("button[data-street]").forEach(btn=>{
+   
+document.querySelectorAll("button[data-street]").forEach(btn=>{
 btn.disabled = true;
 }); 
 }
-
+/* -------------------------------
+   NEXT BUTTON
+-------------------------------- */
+   
 document.getElementById("nextButton").addEventListener("click",function(){
+   
 playerComments[currentCar] = document.getElementById("playerComment").value;
+   
 currentCar++;
 
 document.getElementById("playerComment").value="";
@@ -472,17 +495,24 @@ loadCar();
   
   
 document.querySelectorAll("button[data-street]").forEach(btn=>{
+   
 btn.addEventListener("click",()=>{
 checkStreet(btn.dataset.street);
 });
+   
 });
 
+/* -------------------------------
+   START GAME
+-------------------------------- */ 
+   
 loadCar();
 
 </script>
 
 </body>
 </html>
+
 
 
 
