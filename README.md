@@ -9,6 +9,6 @@ You will be shown a test result Summary at hthe end.
 You can add your comments to the picture once you selected the street you can add more than one comment on any picture.
 Save a screen shot of your final score to see who wins the 2026 Corvette
 Yes there are pictures that you will not recognize but apply some logic to guess.
-
+ 
                         Created by
                        Lewis G. Keim      
