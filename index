@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Street Match</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+max-width:800px;
+margin:auto;
+padding:40px;
+line-height:1.6;
+}
+
+h1{
+font-size:40px;
+}
+
+#startButton{
+margin-top:40px;
+padding:15px 40px;
+font-size:20px;
+background:#4CAF50;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+#startButton:hover{
+background:#3e8e41;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Street Match</h1>
+
+<div id="introText">
+
+<p>
+Welcome to <b>Street Match</b>.
+</p>
+
+<p>
+This game is a collection of memories from the neighborhood.
+Each photograph is connected to a story, a street, or a moment in time.
+</p>
+
+<p>
+Your task is simple:
+</p>
+
+<p>
+Look at the picture and decide which street it belongs to.
+</p>
+
+<p>
+After each guess you will see the story behind the photo and can add your own memories.
+</p>
+
+<p>
+At the end you will see your score and a full recap of every story.
+</p>
+
+<p>
+Good luck — and enjoy the memories.
+</p>
+
+</div>
+
+<button id="startButton" onclick="location.href='game.html'">
+Start the Game
+</button>
+
+</body>
+</html>
