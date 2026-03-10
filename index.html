@@ -213,7 +213,9 @@ document.getElementById("nextButton").style.display="block";
 document.getElementById("explanationBox").innerHTML=
 "<b>"+message+"</b><br><br>"+cars[currentCar].explanation;
 
-}
+document.querySelectorAll("button[data-street]").forEach(btn=>{
+btn.disabled=true;
+});
 
 
 /* NEXT BUTTON */
@@ -254,6 +256,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
