@@ -163,12 +163,9 @@ resultsHTML+="<h2>Score "+score+" / "+cars.length+"</h2>";
 for(let i=0;i<cars.length;i++){
 
 resultsHTML+="<div style='border:1px solid black;padding:10px;margin:10px'>";   
-
-   
+  
 resultsHTML+="<img src='images/"+cars[i].image+"' style='max-width:200px'><br>";
-   
-   
-   
+      
 resultsHTML+="<b>Street:</b> "+cars[i].street+"<br>";
 
 if(cars[i].explanation)
@@ -266,6 +263,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
