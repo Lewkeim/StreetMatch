@@ -37,6 +37,13 @@ border-radius:6px;
 cursor:pointer;
 }
 
+button{
+margin:5px;
+padding:10px 15px;
+font-size:16px;
+cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -75,40 +82,74 @@ cursor:pointer;
 
 const cars = [
 
-/* YOUR FULL CAR LIST GOES HERE */
-/* (paste your entire list exactly as you already wrote it) */
+{image:"PierceMotor3.jpg",street:"Ingalls Ave",explanation:"Hidden in the Grygotis garage was a piece of motorcycle history!"},
+{image:"1950-mercury-coupe3.jpg",street:"Ingalls Ave",explanation:"Hidden in the Grygotis garage was a 1950 Mercury. The front chrome is not as bold as a 1951"},
+{image:"1951-mercury-coupe3.jpg",street:"Richford Terr",explanation:"The first car in Keim History - a Mercury a year different in age than Anthony's."},
+{image:"rowboat23.jpg",street:"Richford Terr",explanation:"Well since we didn't do well n the VDM112 question, how about what was the X in the boat registration number?"},
+{image:"1965-cadillac-deville3.jpg",street:"Ingalls Ave",explanation:"Anthony's rich aunt drove a Caddy- which he sold to Lewis"},
+{image:"boat33.jpg",street:"Ingalls Ave",explanation:"Does anyone remember the wooden hydroplane Anthony built ?"},
+{image:"wagon33.jpg",street:"Richford Terr",explanation:"The Keims vacation wagon."},
+{image:"1972-dodge-challenger3.jpg",street:"Dill Ave",explanation:"Jim's Charger"},
+{image:"oilfilter.jpg",street:"Dill Ave",explanation:"Jim had some mods done to his Charger including the oil filter adapter."},
+{image:"1972-dodge-challenger3.jpg",street:"Dill Ave",explanation:"Jim's Charger."},
+{image:"nash3.jpg",street:"Ingalls Ave",explanation:"Anthony's Nash."},
+{image:"Pierce2253.jpg",street:"Ingalls Ave",explanation:"Potentially the highest priced vehicle of the group."},
+{image:"1972-plymouth-cuda3.jpg",street:"Richford Terr",explanation:"Lew's Cuda"},
+{image:"pushbutton3.jpg",street:"Richford Terr",explanation:"Green Rambler with push button automatic."},
+{image:"bmw3.jpg",street:"Hagel Ave",explanation:"One block up from John's house lived this piece of history"},
+{image:"beer13.jpg",street:"Richford Terr",explanation:"Lew Keim senior used to have beer delivered to the house - Schmitts"},
+{image:"impala23.jpg",street:"Richford Terr",explanation:"Neighbor McDonalds owned an Impala."},
+{image:"fairlaneRed3.jpg",street:"Richford Terr",explanation:"Harry's red Fairlane 500."},
+{image:"extended3.jpg",street:"Richford Terr",explanation:"Jimmy crashed Lew's extended fork bike."},
+{image:"stationwagon3.jpg",street:"Ingalls Ave",explanation:"Did the Grygotis's own a station wagon?"},
+{image:"meals3.jpg",street:"Hagel Ave",explanation:"John's father worked with Meals on Wheels"},
+{image:"meals33.jpg",street:"Hagel Ave",explanation:"Meals on Wheels history."},
+{image:"meals43.jpg",street:"Hagel Ave",explanation:"Joseph LaPlaca history with Meals on Wheels"},
+{image:"tbirdwindow3.jpg",street:"Dill Ave",explanation:"Old Tbird stored near Jim's house."},
+{image:"scoter3.jpg",street:"Ingalls Ave",explanation:"Anth bought a scooter in auction."},
+{image:"bronco3.jpg",street:"Richford Terr",explanation:"Minibike Aunt Eleanor bought Lewis."},
+{image:"bug3.jpg",street:"Ingalls Ave",explanation:"Anth's VW project."},
+{image:"buga3.jpg",street:"Ingalls Ave",explanation:"Anth's VW project gone bad."},
+{image:"cudahood3.jpg",street:"Ingalls Ave",explanation:"Cuda hood replacement story."},
+{image:"daytona3.jpg",street:"Memory Lane",explanation:"The famous Daytona Superbird sighting."},
+{image:"fiat3.jpg",street:"Ingalls Ave",explanation:"Anth's Italian Fiat."},
+{image:"fiero3.jpg",street:"Memory Lane",explanation:"Lewis bought Maritza a Pontiac Fiero."},
+{image:"lincoln23.jpg",street:"Memory Lane",explanation:"Lincoln memory."},
+{image:"lincoln43.jpg",street:"Memory Lane",explanation:"Bus coming straight at the car."},
+{image:"lincoln33.jpg",street:"Memory Lane",explanation:"Lew squeezing through center stantions."},
+{image:"mustang-engine3.jpg",street:"Hagel Ave",explanation:"Whose engine was this?"},
+{image:"Lincoln3.jpg",street:"Memory Lane",explanation:"Lincoln memory."},
+{image:"hotwheel3.jpg",street:"Richford Terr",explanation:"Hot wheels track next to the Keim house."},
+{image:"hurst3.jpg",street:"Ingalls Ave",explanation:"The Hurst that worked at McCracken's."},
+{image:"mustang3.jpg",street:"Hagel Ave",explanation:"John's Mustang"},
+{image:"nash3.jpg",street:"Ingalls Ave",explanation:"Anth's Nash again."},
+{image:"old-hemi-engine3.jpg",street:"Memory Lane",explanation:"Old Hemi engine found while trout fishing."},
+{image:"schwinA3.jpg",street:"Ingalls Ave",explanation:"Anth's Schwinn bike"},
+{image:"schwinn3.jpg",street:"Richford Terr",explanation:"Lew's Schwinn Racer"},
+{image:"Sunbeam3.jpg",street:"Richford Terr",explanation:"Aunt Eleanor's Sunbeam"},
+{image:"yamaha3.jpg",street:"Richford Terr",explanation:"Lew traded the Yamaha for a couch."},
+{image:"Interior3.jpg",street:"Hagel Ave",explanation:"Mustang interior memory"}
 
 ];
 
 
-/* -------------------------------
-   VARIABLES
--------------------------------- */
+/* VARIABLES */
 
 let currentCar = 0;
 let score = 0;
 let playerComments = [];
-
-
-/* -------------------------------
-   PAGE ELEMENTS
--------------------------------- */
 
 const carImage = document.getElementById("carImage");
 const scoreDisplay = document.getElementById("score");
 const progressDisplay = document.getElementById("progress");
 
 
-/* -------------------------------
-   SHUFFLE
--------------------------------- */
+/* SHUFFLE */
 
 cars.sort(()=>Math.random()-0.5);
 
 
-/* -------------------------------
-   LOAD CAR
--------------------------------- */
+/* LOAD CAR */
 
 function loadCar(){
 
@@ -116,31 +157,25 @@ if(currentCar >= cars.length){
 
 let resultsHTML="<h1>Game Over</h1>";
 resultsHTML+="<h2>Score "+score+" / "+cars.length+"</h2>";
-resultsHTML+="<h3>Player Comments</h3>";
 
 for(let i=0;i<cars.length;i++){
 
 resultsHTML+="<div style='border:1px solid black;padding:10px;margin:10px'>";
-
 resultsHTML+="<img src='"+cars[i].image+"' style='max-width:200px'><br>";
-
 resultsHTML+="<b>Street:</b> "+cars[i].street+"<br>";
 
-if(cars[i].explanation){
+if(cars[i].explanation)
 resultsHTML+="<b>Explanation:</b> "+cars[i].explanation+"<br>";
-}
 
-if(playerComments[i]){
+if(playerComments[i])
 resultsHTML+="<b>Your Comment:</b> "+playerComments[i];
-}
 
 resultsHTML+="</div>";
 }
 
-resultsHTML+="<br><button onclick='location.reload()'>Play Again</button>";
+resultsHTML+="<button onclick='location.reload()'>Play Again</button>";
 
 document.body.innerHTML=resultsHTML;
-
 return;
 
 }
@@ -150,16 +185,10 @@ carImage.src=cars[currentCar].image;
 progressDisplay.innerText=
 "Picture "+(currentCar+1)+" of "+cars.length;
 
-document.querySelectorAll("button[data-street]").forEach(btn=>{
-btn.disabled=false;
-});
-
 }
 
 
-/* -------------------------------
-   CHECK ANSWER
--------------------------------- */
+/* CHECK ANSWER */
 
 function checkStreet(guess){
 
@@ -182,20 +211,14 @@ document.getElementById("playerBox").style.display="block";
 document.getElementById("nextButton").style.display="block";
 
 document.getElementById("explanationBox").innerHTML=
-"<b>"+message+"</b><br><br>"+(cars[currentCar].explanation||"");
-
-document.querySelectorAll("button[data-street]").forEach(btn=>{
-btn.disabled=true;
-});
+"<b>"+message+"</b><br><br>"+cars[currentCar].explanation;
 
 }
 
 
-/* -------------------------------
-   NEXT BUTTON
--------------------------------- */
+/* NEXT BUTTON */
 
-document.getElementById("nextButton").addEventListener("click",function(){
+document.getElementById("nextButton").onclick=function(){
 
 playerComments[currentCar]=
 document.getElementById("playerComment").value;
@@ -209,12 +232,10 @@ document.getElementById("nextButton").style.display="none";
 
 loadCar();
 
-});
+};
 
 
-/* -------------------------------
-   BUTTON EVENTS
--------------------------------- */
+/* BUTTON EVENTS */
 
 document.querySelectorAll("button[data-street]").forEach(btn=>{
 
@@ -225,9 +246,7 @@ checkStreet(btn.dataset.street);
 });
 
 
-/* -------------------------------
-   START GAME
--------------------------------- */
+/* START GAME */
 
 loadCar();
 
@@ -235,44 +254,6 @@ loadCar();
 
 </body>
 </html>
-What this fixes
-
-✔ cars defined before use
-✔ no duplicate functions
-✔ no duplicate variables
-✔ proper script closing
-✔ stable event handling
-✔ results page works
-
-Result
-
-Your game will now:
-
-show a car
-
-allow street guess
-
-show explanation
-
-collect comments
-
-move to next car
-
-show final results
-
-If you'd like, I can also show you 3 upgrades that would make the game look dramatically better:
-
-1️⃣ A progress bar instead of text
-2️⃣ Correct/Incorrect flashing colors
-3️⃣ Smooth picture fade transitions
-
-They take about 5 minutes to add but make the game look professional.
-
-
-
-
-
-
 
 
 
