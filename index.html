@@ -184,7 +184,10 @@ carImage.src="images/"+cars[currentCar].image;
 
 progressDisplay.innerText=
 "Picture "+(currentCar+1)+" of "+cars.length;
-
+document.querySelectorAll("button[data-street]").forEach(btn=>{
+    btn.disabled = false;
+});
+   
 }
 
 
@@ -256,6 +259,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
