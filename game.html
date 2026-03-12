@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-console.log("StreetMatch script loaded");
+
 <head>
 <title>Street Match</title>
 
 <style>
-
+console.log("StreetMatch script loaded");
 button{
 margin:5px;
 padding:10px 15px;
@@ -63,6 +63,12 @@ cursor:pointer;
 }
 
 </style>
+#scoreboard{
+font-size:22px;
+margin:15px;
+font-weight:bold;
+}   
+   
 </head>
 
 <body>
@@ -70,8 +76,8 @@ cursor:pointer;
 <h1>Street Match</h1>
 <p>Drag the car to the street where it was parked</p>
 
-<div id="scoreboard">
-   
+<div id="scoreboard">Score: 0</div>
+<div id="progress">Picture 1 of 48</div>  
 Score: <span id="score">0</span> /
 <span id="total"></span>
 </div>
@@ -81,11 +87,7 @@ Score: <span id="score">0</span> /
 <span id="total"></span>
 </div>
 
-#scoreboard{
-font-size:22px;
-margin:15px;
-font-weight:bold;
-}   
+
    
 <div id="progress"></div>
 */
@@ -317,6 +319,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
