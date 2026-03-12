@@ -68,10 +68,22 @@ cursor:pointer;
 <body>
 
 <h1>Street Match</h1>
+<p>Drag the car to the street where it was parked</p>
 
+<div id="scoreboard">
+Score: <span id="score">0</span> /
+<span id="total"></span>
+</div>
+/*   
 <div id="score">Score: 0</div>
 <div id="progress"></div>
+*/
 
+#scoreboard{
+font-size:22px;
+margin:15px;
+font-weight:bold;
+}   
 <br>
 
 <img id="carImage" src="" alt="Car Image">
@@ -161,7 +173,8 @@ const cars = [
    
 ];
 
-
+document.getElementById("total").innerText = cars.length;
+   
 /* VARIABLES */
 
 let currentCar = 0;
@@ -234,6 +247,7 @@ let message;
 
 if(guess===correct){
 score++;
+document.getElementById("score").innerText = score;   
 message="Correct!";
 }
 else{
@@ -292,6 +306,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
