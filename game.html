@@ -71,11 +71,22 @@ cursor:pointer;
 <p>Drag the car to the street where it was parked</p>
 
 <div id="scoreboard">
+   
 Score: <span id="score">0</span> /
 <span id="total"></span>
 </div>
 /*   
 <div id="score">Score: 0</div>
+Score: <span id="score">0</span> /
+<span id="total"></span>
+</div>
+
+#scoreboard{
+font-size:22px;
+margin:15px;
+font-weight:bold;
+}   
+   
 <div id="progress"></div>
 */
 
@@ -140,7 +151,7 @@ const cars = [
 {image:"zora3.jpg",street:"Memory Lane",explanation:"The winning player gets a 2026 Corvette ZORA!!!"},
 
 {image:"oilfilter.jpg",street:"Dill Ave",explanation:"Jim had some mods done to his Charger including the oil filter adapter needed since the headers interferred."},
-{image:"hurst23.jpg",street:"Dill Ave",explanation:"Jim's Charger/Challenger."},
+
 {image:"nash3.jpg",street:"Ingalls Ave",explanation:"Anthony's Nash - it was gray."},
 {image:"pierce2253.jpg",street:"Ingalls Ave",explanation:"Potentially the highest priced vehicle of the group. I understand Anth gave it away. Bad move!"},
 
@@ -306,6 +317,7 @@ loadCar();
 
 </body>
 </html>
+
 
 
 
