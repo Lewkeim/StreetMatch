@@ -212,21 +212,8 @@ document.querySelectorAll("button[data-street]").forEach(btn=>{
 
 }
  
-if(cars[i].explanation)
-resultsHTML+="<b>Explanation:</b> "+cars[i].explanation+"<br>";
 
-if(playerComments[i])
-resultsHTML+="<b>Your Comment:</b> "+playerComments[i];
 
-resultsHTML+="</div>";
-}
-
-resultsHTML+="<button onclick='location.reload()'>Play Again</button>";
-
-document.body.innerHTML=resultsHTML;
-return;
-
-}
 
 carImage.src="images/"+cars[currentCar].image;
 carImage.onerror = function(){
