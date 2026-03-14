@@ -193,18 +193,25 @@ cars.sort(()=>Math.random()-0.5);
 function loadCar(){
 
 if(currentCar >= cars.length){
+    window.location.href = "winner.html";
+    return;
+}
 
-let resultsHTML="<h1>Game Over</h1>";
-resultsHTML+="<h2>Score "+score+" / "+cars.length+"</h2>";
+carImage.src = "images/" + cars[currentCar].image;
 
-for(let i=0;i<cars.length;i++){
+carImage.onerror = function(){
+    this.alt = "Image not found: " + cars[currentCar].image;
+};
 
-resultsHTML+="<div style='border:1px solid black;padding:10px;margin:10px'>";   
-  
-resultsHTML+="<img src='images/"+cars[i].image+"' style='max-width:200px'><br>";
-      
-resultsHTML+="<b>Street:</b> "+cars[i].street+"<br>";
+progressDisplay.innerText =
+"Picture " + (currentCar + 1) + " of " + cars.length;
 
+document.querySelectorAll("button[data-street]").forEach(btn=>{
+    btn.disabled = false;
+});
+
+}
+ 
 if(cars[i].explanation)
 resultsHTML+="<b>Explanation:</b> "+cars[i].explanation+"<br>";
 
@@ -224,6 +231,7 @@ return;
 carImage.src="images/"+cars[currentCar].image;
 carImage.onerror = function(){
     this.alt="Image not found: "+cars[currentCar].image;   
+
 };
    
 progressDisplay.innerText=
