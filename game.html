@@ -197,18 +197,6 @@ if(currentCar >= cars.length){
     return;
 }
 
-carImage.src = "images/" + cars[currentCar].image;
-
-carImage.onerror = function(){
-    this.alt = "Image not found: " + cars[currentCar].image;
-};
-
-progressDisplay.innerText =
-"Picture " + (currentCar + 1) + " of " + cars.length;
-
-document.querySelectorAll("button[data-street]").forEach(btn=>{
-    btn.disabled = false;
-});
 
 }
  
