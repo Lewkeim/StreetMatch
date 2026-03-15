@@ -189,7 +189,8 @@ const progressDisplay = document.getElementById("progress");
 cars.sort(()=>Math.random()-0.5);
 
 /* LOAD CAR */
-
+console.log("Loading:", "images/" + cars[currentCar].image);
+ 
 function loadCar(){
 
 if(currentCar >= cars.length){
