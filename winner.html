@@ -13,7 +13,7 @@ background:#f4f4f4;
 transition: background 1s ease;
 }
 
-/* dim effect */
+/* dim background */
 body.dimmed{
 background:#222;
 color:white;
@@ -34,10 +34,10 @@ opacity:0;
 
 /* video styling */
 video{
-display:block;
+display:none;
 margin:20px auto;
 max-width:50%;
-width:300px;
+width:320px;
 border:5px solid black;
 border-radius:10px;
 box-shadow:0 10px 25px rgba(0,0,0,0.5);
@@ -50,6 +50,22 @@ video.show{
 opacity:1;
 }
 
+/* button */
+button{
+margin-top:30px;
+padding:20px 40px;
+font-size:24px;
+background-color:#4CAF50;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background-color:#3e8e41;
+}
+
 </style>
 </head>
 
@@ -58,6 +74,10 @@ opacity:1;
 <h1>Street Match</h1>
 
 <img id="winnerImg" src="winner.jpg" alt="Winner">
+
+<br>
+
+<button id="startBtn" onclick="startShow()">See your prize</button>
 
 <!-- AUDIO -->
 <audio id="winSound">
@@ -71,35 +91,40 @@ opacity:1;
 
 <script>
 
-window.onload = function(){
+function startShow(){
 
 const audio = document.getElementById("winSound");
 const video = document.getElementById("winVideo");
 const img = document.getElementById("winnerImg");
+const btn = document.getElementById("startBtn");
 
-// Step 1: slight delay, then dim background
-setTimeout(()=>{
-    document.body.classList.add("dimmed");
-}, 500);
+// hide button
+btn.style.display = "none";
 
-// Step 2: play audio
-audio.play().catch(()=>{});
+// dim background
+document.body.classList.add("dimmed");
 
-// Step 3: when audio ends → transition
+// play audio
+audio.play();
+
+// when audio ends → show video
 audio.onended = function(){
 
     // fade out image
     img.classList.add("hidden");
 
-    // show + fade in video
+    // show video
     video.style.display = "block";
-    video.classList.add("show");
 
-    video.play();
+    // slight delay then fade in
+    setTimeout(()=>{
+        video.classList.add("show");
+        video.play();
+    }, 300);
 
 };
 
-};
+}
 
 </script>
 
