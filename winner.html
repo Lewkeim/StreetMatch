@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<title>You Win!</title>
 
 <style>
-
- 
 
 body{
 font-family:Arial;
@@ -21,7 +14,15 @@ border:5px solid black;
 margin-top:40px;
 }
 
-
+video{
+display:block;
+margin:20px auto;
+max-width:50%;
+width:300px;
+border:5px solid black;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
 
 button{
 margin-top:30px;
@@ -45,7 +46,7 @@ background-color:#3e8e41;
 
 <h1>Street Match</h1>
 
-<img src="winner.jpg" alt="Winner">
+<img id="winnerImg" src="winner.jpg" alt="Winner">
 
 <br>
 
@@ -61,18 +62,6 @@ background-color:#3e8e41;
 <source src="images/AnthLewJimJohn.mp4" type="video/mp4">
 </video>
 
-video{
-display:block;
-margin:20px auto;
-max-width:50%;
-width:300px;
-border:5px solid black;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-
-
-  
 <script>
 
 function playWin(){
@@ -80,15 +69,16 @@ function playWin(){
 const audio = document.getElementById("winSound");
 const video = document.getElementById("winVideo");
 
+// hide the winner image for better effect
+document.getElementById("winnerImg").style.display = "none";
+
 // play audio first
 audio.play();
 
 // when audio ends → show video
 audio.onended = function(){
-
-video.style.display = "block";
-video.play();
-
+    video.style.display = "block";
+    video.play();
 };
 
 }
@@ -96,4 +86,4 @@ video.play();
 </script>
 
 </body>
-</html>
+</html> 
