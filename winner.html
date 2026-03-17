@@ -3,12 +3,20 @@
 
 <head>
 <title>You Win!</title>
+
 <style>
 
 body{
 font-family:Arial;
 text-align:center;
 background:#f4f4f4;
+transition: background 1s ease;
+}
+
+/* dim effect */
+body.dimmed{
+background:#222;
+color:white;
 }
 
 img{
@@ -16,31 +24,30 @@ width:500px;
 max-width:90%;
 border:5px solid black;
 margin-top:40px;
+transition: opacity 1s ease;
 }
 
+/* fade out image */
+img.hidden{
+opacity:0;
+}
+
+/* video styling */
 video{
 display:block;
 margin:20px auto;
-max-width:60%;
-width:400px;
+max-width:50%;
+width:300px;
 border:5px solid black;
 border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+opacity:0;
+transition: opacity 1.5s ease;
 }
 
-button{
-margin-top:30px;
-padding:20px 40px;
-font-size:24px;
-background-color:#4CAF50;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-}
-
-button:hover{
-background-color:#3e8e41;
+/* fade in video */
+video.show{
+opacity:1;
 }
 
 </style>
@@ -52,42 +59,49 @@ background-color:#3e8e41;
 
 <img id="winnerImg" src="winner.jpg" alt="Winner">
 
-<br>
-
-<button onclick="playWin()">See your prize (and again)</button>
-
 <!-- AUDIO -->
 <audio id="winSound">
 <source src="images/startyour.mp3" type="audio/mpeg">
 </audio>
 
-<!-- VIDEO (hidden at first) -->
-<video id="winVideo" controls style="display:none;">
+<!-- VIDEO -->
+<video id="winVideo" controls>
 <source src="images/AnthLewJimJohn.mp4" type="video/mp4">
 </video>
 
 <script>
 
-function playWin(){
+window.onload = function(){
 
 const audio = document.getElementById("winSound");
 const video = document.getElementById("winVideo");
+const img = document.getElementById("winnerImg");
 
-// hide the winner image for better effect
-document.getElementById("winnerImg").style.display = "none";
+// Step 1: slight delay, then dim background
+setTimeout(()=>{
+    document.body.classList.add("dimmed");
+}, 500);
 
-// play audio first
-audio.play();
+// Step 2: play audio
+audio.play().catch(()=>{});
 
-// when audio ends → show video
+// Step 3: when audio ends → transition
 audio.onended = function(){
+
+    // fade out image
+    img.classList.add("hidden");
+
+    // show + fade in video
     video.style.display = "block";
+    video.classList.add("show");
+
     video.play();
+
 };
 
-}
+};
 
 </script>
 
 </body>
-</html> 
+</html>
