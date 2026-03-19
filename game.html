@@ -197,7 +197,7 @@ console.log("Loading:", "images/" + cars[currentCar].image);
 function loadCar(){
 
 if(currentCar >= cars.length){
-    window.location.href = "winner.html";
+    showResults();
     return;
 }
 
@@ -303,7 +303,38 @@ checkStreet(btn.dataset.street);
 /* START GAME */
 
 loadCar();
+function showResults(){
 
+let resultsHTML = "<h1>Game Over</h1>";
+resultsHTML += "<h2>Score: " + score + " / " + cars.length + "</h2>";
+
+for(let i = 0; i < cars.length; i++){
+
+    resultsHTML += "<div style='border:1px solid #ccc; padding:10px; margin:10px;'>";
+
+    resultsHTML += "<img src='images/" + cars[i].image + "' style='max-width:200px;'><br>";
+
+    resultsHTML += "<b>Street:</b> " + cars[i].street + "<br>";
+
+    if(cars[i].explanation){
+        resultsHTML += "<b>Explanation:</b> " + cars[i].explanation + "<br>";
+    }
+
+    if(playerComments[i]){
+        resultsHTML += "<b>Your Comment:</b> " + playerComments[i] + "<br>";
+    }
+
+    resultsHTML += "</div>";
+}
+
+// buttons
+resultsHTML += "<br><button onclick='location.reload()'>Play Again</button>";
+
+resultsHTML += "<br><br><button onclick=\"location.href='winner.html'\">See Winner Video</button>";
+
+document.body.innerHTML = resultsHTML;
+
+}
 </script>
 
 </body>
