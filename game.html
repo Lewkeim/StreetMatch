@@ -194,27 +194,7 @@ cars.sort(()=>Math.random()-0.5);
 /* LOAD CAR */
 console.log("Loading:", "images/" + cars[currentCar].image);
  
-function loadCar(){
 
-if(currentCar >= cars.length){
-    showResults();
-    return;
-}
-
-carImage.src = "images/" + cars[currentCar].image;
-
-carImage.onerror = function(){
-    this.alt = "Image not found: " + cars[currentCar].image;
-};
-
-progressDisplay.innerText =
-"Picture " + (currentCar + 1) + " of " + cars.length;
-
-document.querySelectorAll("button[data-street]").forEach(btn=>{
-    btn.disabled = false;
-});
-
-}
 
 /* CHECK ANSWER */
 
