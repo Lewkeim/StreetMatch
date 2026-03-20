@@ -111,7 +111,82 @@ const audio = document.getElementById("winSound");
 const video = document.getElementById("winVideo");
 const img = document.getElementById("winnerImg");
 const btn = document.getElementById("startBtn");
+function startShow(){
 
+const audio = document.getElementById("winSound");
+const video = document.getElementById("winVideo");
+const img = document.getElementById("winnerImg");
+const btn = document.getElementById("startBtn");
+function startShow(){
+
+const audio = document.getElementById("winSound");
+const video = document.getElementById("winVideo");
+const img = document.getElementById("winnerImg");
+const btn = document.getElementById("startBtn");
+const msg = document.getElementById("loveMsg");     
+
+// hide button
+btn.style.display = "none";
+
+// dim background
+document.body.classList.add("dimmed");
+
+// play audio
+audio.play();
+
+// when audio ends → show video
+audio.onended = function(){
+
+    // fade out image
+    img.classList.add("hidden");
+
+    // show video
+    video.style.display = "block";
+
+    // slight delay then fade in
+    setTimeout(()=>{
+        video.classList.add("show");
+        video.play();
+        msg.style.display = "block"; 
+    }, 300);
+
+};
+
+}
+// hide button
+btn.style.display = "none";
+
+// dim background
+document.body.classList.add("dimmed");
+
+// play audio
+audio.play();
+
+// when audio ends → show video
+audio.onended = function(){
+
+    // fade out image
+    img.classList.add("hidden");
+
+    // show video
+    video.style.display = "block";
+
+    // slight delay then fade in
+    setTimeout(()=>{
+        video.classList.add("show");
+        video.play();
+        msg.style.display = "block"; 
+    }, 300);
+
+};
+
+}
+
+</script>
+
+</body>
+</html>
+    
 // hide button
 btn.style.display = "none";
 
