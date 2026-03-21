@@ -65,6 +65,8 @@ cursor:pointer;
 button:hover{
 background-color:#3e8e41;
 }
+
+/* message */
 #loveMsg{
 display:none;
 font-size:28px;
@@ -73,7 +75,7 @@ font-weight:bold;
 color:#fff;
 text-shadow:2px 2px 6px rgba(0,0,0,0.6);
 }
-    
+
 </style>
 </head>
 
@@ -96,7 +98,9 @@ text-shadow:2px 2px 6px rgba(0,0,0,0.6);
 <video id="winVideo" controls>
 <source src="images/anthlewjimjohn.mp4" type="video/mp4">
 </video>
+
 <div id="loveMsg">Love you guys</div>
+
 <script>
 
 function startShow(){
@@ -105,54 +109,8 @@ const audio = document.getElementById("winSound");
 const video = document.getElementById("winVideo");
 const img = document.getElementById("winnerImg");
 const btn = document.getElementById("startBtn");
-function startShow(){
+const msg = document.getElementById("loveMsg");
 
-const audio = document.getElementById("winSound");
-const video = document.getElementById("winVideo");
-const img = document.getElementById("winnerImg");
-const btn = document.getElementById("startBtn");
-function startShow(){
-
-const audio = document.getElementById("winSound");
-const video = document.getElementById("winVideo");
-const img = document.getElementById("winnerImg");
-const btn = document.getElementById("startBtn");
-
-function startShow(){
-
-const audio = document.getElementById("winSound");
-const video = document.getElementById("winVideo");
-const img = document.getElementById("winnerImg");
-const btn = document.getElementById("startBtn");
-const msg = document.getElementById("loveMsg");     
-
-  
-
-// dim background
-document.body.classList.add("dimmed");
-
-// play audio
-audio.play();
-
-// when audio ends → show video
-audio.onended = function(){
-
-    // fade out image
-    img.classList.add("hidden");
-
-    // show video
-    video.style.display = "block";
-
-    // slight delay then fade in
-    setTimeout(()=>{
-        video.classList.add("show");
-        video.play();
-        msg.style.display = "block"; 
-    }, 300);
-
-};
-
-}
 // hide button
 btn.style.display = "none";
 
@@ -175,69 +133,10 @@ audio.onended = function(){
     setTimeout(()=>{
         video.classList.add("show");
         video.play();
-        msg.style.display = "block"; 
-    }, 300);
 
-};
+        // show message
+        msg.style.display = "block";
 
-}
-
-</script>
-
-</body>
-</html>
-    
-// hide button
-btn.style.display = "none";
-
-// dim background
-document.body.classList.add("dimmed");
-
-// play audio
-audio.play();
-
-// when audio ends → show video
-audio.onended = function(){
-
-    // fade out image
-    img.classList.add("hidden");
-
-    // show video
-    video.style.display = "block";
-
-    // slight delay then fade in
-    setTimeout(()=>{
-        video.classList.add("show");
-        video.play();
-        msg.style.display = "block"; 
-    }, 300);
-
-};
-
-}
-// hide button
-btn.style.display = "none";
-
-// dim background
-document.body.classList.add("dimmed");
-
-// play audio
-audio.play();
-
-// when audio ends → show video
-audio.onended = function(){
-
-    // fade out image
-    img.classList.add("hidden");
-
-    // show video
-    video.style.display = "block";
-
-    // slight delay then fade in
-    setTimeout(()=>{
-        video.classList.add("show");
-        video.play();
-        msg.style.display = "block"; 
     }, 300);
 
 };
